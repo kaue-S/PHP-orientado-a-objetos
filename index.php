@@ -6,23 +6,37 @@
     <title>Exemplo</title>
 </head>
 <body>
-    <h1>PHP com POO - exemplo 1</h1>
+    <h1>PHP com POO - exemplo 2</h1>
     <hr>
     <h2>Assuntos abordados:</h2>
     <ul>
-        <li>Criação de classe</li>
-        <li>Importação do arquivo de classe</li>
-        <li>Criação de instâncias/objetos</li>
+        <li>Acesso direto às propriedades</li>
+        <li>Atribuição e leitura de dados</li>
+        <li>Chamada de método</li>
     </ul>
 
     <?php
-    //importando a classe
         require_once "src/Cliente.php";
 
-        //criando instância da classe (Objetos!)
+        //instâncias da classe (Objetos!)
         $clienteA = new Cliente;
         $clienteB = new Cliente;
+
+        //acesso e atribuição
+        $clienteA->nome = "Kauê";
+        $clienteB->nome = "Isaac";
+
+        $clienteA->telefones = ["11-2135-0300", "11-9666-5555"];
+        $clienteA->email = "kaue506@gmail.com";
+        $clienteA->senha = password_hash("123abc", PASSWORD_DEFAULT);
     ?>
 
+    <hr>
+
+    <h2>Dados dos objetos</h2>
+    <h3> <?=$clienteA->nome?> </h3>
+    <h3> <?=$clienteB->nome?> </h3>
+
+    <pre><?=var_dump($clienteA, $clienteB)?></pre>
 </body>
 </html>

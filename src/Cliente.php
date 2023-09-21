@@ -5,7 +5,7 @@
         public string $nome;
         public string $email;
         public string $senha;
-        public array $telefone;
+        public array $telefones;
 
         //metodos (ou comportamento)
         public function exibirDados():void{

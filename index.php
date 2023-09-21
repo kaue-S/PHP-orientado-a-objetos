@@ -23,6 +23,6 @@
         $clienteA = new Cliente;
         $clienteB = new Cliente;
     ?>
-    <pre><?=var_dump($clienteA, $clienteB)?></pre>
+
 </body>
 </html>

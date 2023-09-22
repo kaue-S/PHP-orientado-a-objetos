@@ -13,6 +13,7 @@
         <li>Acesso direto às propriedades</li>
         <li>Atribuição e leitura de dados</li>
         <li>Chamada de método</li>
+        <li>Uso do <code>$this</code> para acessar recursos dentro da propria classe</li>
     </ul>
 
     <?php
@@ -24,11 +25,12 @@
 
         //acesso e atribuição
         $clienteA->nome = "Kauê";
-        $clienteB->nome = "Isaac";
-
         $clienteA->telefones = ["11-2135-0300", "11-9666-5555"];
         $clienteA->email = "kaue506@gmail.com";
         $clienteA->senha = password_hash("123abc", PASSWORD_DEFAULT);
+
+        $clienteB->nome = "Isaac";
+        $clienteB->email = "isaac@gmail.com";
     ?>
 
     <hr>
@@ -49,7 +51,9 @@
         
     </ul>
 
-    <h3>-mail <?=$clienteB->nome?> </h3>
+    <h2>Acesasndo os dados através de um método</h2>
+    <?=$clienteA->exibirDados()?>
+    <?=$clienteB->exibirDados()?>
 
     <pre><?=var_dump($clienteA, $clienteB)?></pre>
 </body>

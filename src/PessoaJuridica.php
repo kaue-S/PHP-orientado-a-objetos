@@ -5,6 +5,12 @@ require_once "src/Cliente.php";
         private string $cnpj;
         private string $nomeFantasia;
 
+        public function __construct()
+        {       //acessando o método setter protegido (existente em cliente)
+                $this->setSituacao("Em análise");
+        }
+       
+
         public function getAno(): int
         {
                 return $this->ano;

@@ -22,7 +22,7 @@
     <h2>Assuntos abordados:</h2>
     <ul>
        <li>Herança (super classe e sub classe)</li>
-       <li>Modificadores de visibilidade</li>
+       <li>Métodos/propriedades protegidos (acessiveis apenas pelas classes em que foram definidos e pelas subclasses)</li>
     </ul>
 
     <?php

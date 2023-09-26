@@ -1,6 +1,8 @@
 <?php
-
-    class Cliente {
+    
+    //Classe abstrata
+    //Não pode ser instanciada, ou seja, não é possivel criar um objeto a partor desta classe. ela é usada apenas como modelo para subclasses com herança.
+    abstract class Cliente {
         //propriedades
         private string $nome;
         private string $email;

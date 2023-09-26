@@ -23,6 +23,8 @@
     <ul>
        <li>Herança (super classe e sub classe)</li>
        <li>Métodos/propriedades protegidos (acessiveis apenas pelas classes em que foram definidos e pelas subclasses)</li>
+       <li>Classe abstrata: não permitir isntâncias/objetos, serve apenas de modelo para subclasses</li>
+       <li>classe final: não permite herança, ou seja, não aceita a criação de subclasses.</li>
     </ul>
 
     <?php
@@ -35,7 +37,6 @@
         $clientePF->setEmail("fulano@email.com");
         $clientePF->setIdade("30");
         $clientePF->setCpf("123.456.789-84");
-
 
         $clientePJ = new PessoaJuridica;
 
@@ -51,7 +52,6 @@
             <li>
                 ClientePJ
             </li>
-
             <li>Nome: <?=$clientePJ->getNome()?></li>
             <li>Email: <?=$clientePJ->getEmail()?></li>
             <li>Ano Fundação: <?=$clientePJ->getAno()?></li>
@@ -59,5 +59,23 @@
             <li>Nome Fantasia: <?=$clientePJ->getNomeFantasia()?></li>
         </ul>
     </article>
+
+    <?php
+        require_once "src/MEI.php";
+        $clienteMei = new MEI;
+        $clienteMei->setNome("Marina Tanaka");
+        $clienteMei->setAno(2023);
+        $clienteMei->setNomeFantasia("Tanaka empreendimentos");
+        $clienteMei->setAreaDeAtuacao("Ervas medicinais");
+    ?>
+
+    <pre><?=var_dump($clienteMei)?></pre>
+
+    <?php
+        require_once "src/Cliente.php";
+        $clienteGenerico = new Cliente;
+    ?>
+
+    <pre><?=var_dump($clienteGenerico)?></pre>
 </body>
 </html>

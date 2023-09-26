@@ -3,36 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exemplo 04</title>
+    <style>
+        ul{
+            list-style: none;
+        }
+
+        article{
+            background-color: beige;
+            width: 300px;
+            padding: 5px;
+        }
+    </style>
+    <title>Exemplo 05</title>
 </head>
 <body>
-    <h1>PHP com POO - exemplo 4</h1>
+    <h1>PHP com POO - exemplo 5</h1>
     <hr>
     <h2>Assuntos abordados:</h2>
     <ul>
-       <li>Encapsulamento</li>
+       <li>Herança (super classe e sub classe)</li>
        <li>Modificadores de visibilidade</li>
     </ul>
 
     <?php
-        require_once "src/Cliente.php";
+        require_once "src/PessoaFisica.php";
+        require_once "src/PessoaJuridica.php";
 
-        $clienteA = new Cliente;
+        $clientePF = new PessoaFisica;
 
-        //o código abaixo dará erro pois a propriedades é privada!
-        // $clienteA->nome = "Tiago";
+        $clientePF->setNome("Fulaninho");
+        $clientePF->setEmail("fulano@email.com");
+        $clientePF->setIdade("30");
+        $clientePF->setCpf("123.456.789-84");
 
-        //usando o setter para atribuir valor à propriedade privada "nome"
 
-        $clienteA->setNome("Fulano");
-        $clienteA->setEmail("ciclano@gmail.com");
-        $clienteA->setSenha("123abc");
+        $clientePJ = new PessoaJuridica;
+
+        $clientePJ->setNome("Beltrano S/A");
+        $clientePJ->setEmail("blabalbal@gmail.com");
+        $clientePJ->setAno(2000);
+        $clientePJ->setCnpj("43.546.0001/000.41");
+        $clientePJ->setNomeFantasia(" bla bla bla Informática");
     ?>
 
-<p>nome: <?=$clienteA->getNome()?></p>
-<p>email: <?=$clienteA->getEmail()?></p>
-<p>Senha: <?=$clienteA->getSenha()?></p>
+    <article>
+        <ul>
+            <li>
+                ClientePJ
+            </li>
 
-<pre><?=var_dump($clienteA)?></pre>
+            <li>Nome: <?=$clientePJ->getNome()?></li>
+            <li>Email: <?=$clientePJ->getEmail()?></li>
+            <li>Ano Fundação: <?=$clientePJ->getAno()?></li>
+            <li>Cnpj: <?=$clientePJ->getCnpj()?></li>
+            <li>Nome Fantasia: <?=$clientePJ->getNomeFantasia()?></li>
+        </ul>
+    </article>
 </body>
 </html>

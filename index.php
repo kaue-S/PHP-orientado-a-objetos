@@ -20,8 +20,10 @@
     <h1>PHP com POO - exemplo 6</h1>
     <hr>
     <h2>Assuntos abordados:</h2>
-    <hr>
-    <h2>Saida de dados</h2>
+    <ul>
+        <li>Polimorfismo</li>
+        <li>Sobreposição de métodos</li>
+    </ul>
 
     <?php
         require_once "src/PessoaFisica.php";

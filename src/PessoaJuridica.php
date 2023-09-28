@@ -10,12 +10,10 @@ require_once "src/Cliente.php";
                 $this->setSituacao("Em análise");
         }
        
-
-        public function exibirDados(): void {
-                echo "<h3>Método exibirDados - Classe PessoaJuridica</h3>";
-                echo "<h4>" .$this->getNome()."</h4>";
-                echo "<p> Situação: " .$this->getSituacao()."</p>";
-                echo "<p> Nome fantasia: " .$this->nomeFantasia."</p>";
+        public function exibirDados(): void{
+                //parent permite o acesso aos recursos da classe pai
+                parent::exibirDados();
+                echo "<p>Nome fantasia: $this->nomeFantasia</p>";
         }
 
         public function getAno(): int

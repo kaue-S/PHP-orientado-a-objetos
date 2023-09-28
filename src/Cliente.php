@@ -10,10 +10,9 @@
         private string $situacao = "a definir";
 
         public  function exibirDados() : void {
-            echo "<h3>Métodos exibirDados - Classe Cliente</h3>";
+            echo "<h3>".$this->getNome()."</h3>";
 
-            echo "<h4> $this->nome </h4>";
-            echo "<p>Situação: $this->situacao </p>";
+            echo "<p>Situação:".$this->getSituacao()."</p>";
         }
 
         //Métodos getter/setters

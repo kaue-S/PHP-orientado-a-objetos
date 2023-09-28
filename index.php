@@ -14,14 +14,18 @@
             padding: 5px;
         }
     </style>
-    <title>Exemplo 05</title>
+    <title>Exemplo 07</title>
 </head>
 <body>
-    <h1>PHP com POO - exemplo 6</h1>
+    <h1>PHP com POO - exemplo 7</h1>
     <hr>
     <h2>Assuntos abordados:</h2>
-    <hr>
-    <h2>Saida de dados</h2>
+  
+    <ul>
+        <li>Polimorfismo</li>
+        <li>Sobreposição</li>
+        <li>Uso do <code>parent</code> para acessar superclasse</li>
+    </ul>
 
     <?php
         require_once "src/PessoaFisica.php";

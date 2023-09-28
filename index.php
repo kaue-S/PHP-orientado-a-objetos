@@ -24,7 +24,30 @@
     <ul>
         <li>Propriedades e métodos estáticos</li>
         <li>acesso direto sem objetos/instâncias</li>
-        <li>Uso do <code>parent</code> para acessar superclasse</li>
+        <li>Uso do <code>self</code> para acesso dentro da classe aos recursos estáticos</li>
     </ul>
+
+    <?php
+        require_once "src/PessoaFisica.php";
+        $cliente1 = new PessoaFisica;
+        $cliente1->setNome("Astrogildo");
+        $cliente1->setIdade(75);
+
+        $cliente2 = new PessoaFisica;
+        $cliente2->setNome("enzo");
+        $cliente2->setIdade(20);
+
+
+        require_once "src/Utilitarios.php";
+        Utilitarios::obterData();
+    ?>
+
+    <h2>Atendimentos do dia: <?=Utilitarios::$dataAtual?></h2>
+
+    <h3>Cliente: <?=$cliente1->getNome()?></h3>
+    <p>Tipo de Atendimentos: <?=Utilitarios::definirAtendimento($cliente1->getIdade())?></p>
+
+    <h3>Cliente: <?=$cliente2->getNome()?></h3>
+    <p>Tipo de Atendimentos: <?=Utilitarios::definirAtendimento($cliente2->getIdade())?></p>
 </body>
 </html>

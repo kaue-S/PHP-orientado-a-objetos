@@ -22,34 +22,9 @@
     <h2>Assuntos abordados:</h2>
   
     <ul>
-        <li>Polimorfismo</li>
-        <li>Sobreposição</li>
+        <li>Propriedades e métodos estáticos</li>
+        <li>acesso direto sem objetos/instâncias</li>
         <li>Uso do <code>parent</code> para acessar superclasse</li>
     </ul>
-
-    <?php
-        require_once "src/PessoaFisica.php";
-        require_once "src/PessoaJuridica.php";
-
-        $clientePF = new PessoaFisica;
-
-        $clientePF->setNome("Fulaninho");
-        $clientePF->setEmail("fulano@email.com");
-        $clientePF->setIdade("30");
-        $clientePF->setCpf("123.456.789-84");
-
-        $clientePJ = new PessoaJuridica;
-
-        $clientePJ->setNome("Beltrano S/A");
-        $clientePJ->setEmail("blabalbal@gmail.com");
-        $clientePJ->setAno(2000);
-        $clientePJ->setCnpj("43.546.0001/000.41");
-        $clientePJ->setNomeFantasia(" bla bla bla Informática");
-    ?>
-
-    <section>
-        <?=$clientePF->exibirDados()?>
-        <?=$clientePJ->exibirDados()?>
-    </section>
 </body>
 </html>

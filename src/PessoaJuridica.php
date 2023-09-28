@@ -11,6 +11,13 @@ require_once "src/Cliente.php";
         }
        
 
+        public function exibirDados(): void {
+                echo "<h3>Método exibirDados - Classe PessoaJuridica</h3>";
+                echo "<h4>" .$this->getNome()."</h4>";
+                echo "<p> Situação: " .$this->getSituacao()."</p>";
+                echo "<p> Nome fantasia: " .$this->nomeFantasia."</p>";
+        }
+
         public function getAno(): int
         {
                 return $this->ano;

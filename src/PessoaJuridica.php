@@ -1,55 +1,62 @@
 <?php
-require_once "src/Cliente.php";
-    class PessoaJuridica extends Cliente {
-        private int $ano;
-        private string $cnpj;
-        private string $nomeFantasia;
+namespace Tabajara;
+require_once "Cliente.php";
+class PessoaJuridica extends Cliente {
+    private int $anoFundacao;
+    private string $cnpj;
+    private string $nomeFantasia;
 
-        public function __construct()
-        {       //acessando o método setter protegido (existente em cliente)
-                $this->setSituacao("Em análise");
-        }
-       
-        public function exibirDados(): void{
-                //parent permite o acesso aos recursos da classe pai
-                parent::exibirDados();
-                echo "<p>Nome fantasia: $this->nomeFantasia</p>";
-        }
-
-        public function getAno(): int
-        {
-                return $this->ano;
-        }
-
-        public function setAno(int $ano): self
-        {
-                $this->ano = $ano;
-
-                return $this;
-        }
-
-        public function getCnpj(): string
-        {
-                return $this->cnpj;
-        }
-
-        public function setCnpj(string $cnpj): self
-        {
-                $this->cnpj = $cnpj;
-
-                return $this;
-        }
-
-        public function getNomeFantasia(): string
-        {
-                return $this->nomeFantasia;
-        }
-
-        public function setNomeFantasia(string $nomeFantasia): self
-        {
-                $this->nomeFantasia = $nomeFantasia;
-
-                return $this;
-        }
+    public function __construct() {
+        /* Acessando o método setter PROTEGIDO (existente em Cliente) */
+        $this->setSituacao("em análise");
     }
-?>
+
+    public function exibirDados():void {
+        /* parent::recursos
+        Permite o acesso aos recursos da classe Pai (superclasse) */
+        parent::exibirDados();
+        echo "<p>Nome fantasia: $this->nomeFantasia</p>";
+    }
+
+
+    public function getAnoFundacao(): int
+    {
+        return $this->anoFundacao;
+    }
+
+
+    public function setAnoFundacao(int $anoFundacao): self
+    {
+        $this->anoFundacao = $anoFundacao;
+
+        return $this;
+    }
+
+
+    public function getCnpj(): string
+    {
+        return $this->cnpj;
+    }
+
+    
+    public function setCnpj(string $cnpj): self
+    {
+        $this->cnpj = $cnpj;
+
+        return $this;
+    }
+
+
+    public function getNomeFantasia(): string
+    {
+        return $this->nomeFantasia;
+    }
+
+    
+    public function setNomeFantasia(string $nomeFantasia): self
+    {
+        $this->nomeFantasia = $nomeFantasia;
+
+        return $this;
+    }
+}

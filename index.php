@@ -3,51 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        ul{
-            list-style: none;
-        }
-
-        article{
-            background-color: beige;
-            width: 300px;
-            padding: 5px;
-        }
-    </style>
-    <title>Exemplo 07</title>
+    <title>Exemplo 9</title>
 </head>
 <body>
-    <h1>PHP com POO - exemplo 7</h1>
+    <h1>PHP com POO - Exemplo 9</h1>
     <hr>
     <h2>Assuntos abordados:</h2>
-  
     <ul>
-        <li>Propriedades e métodos estáticos</li>
-        <li>acesso direto sem objetos/instâncias</li>
-        <li>Uso do <code>self</code> para acesso dentro da classe aos recursos estáticos</li>
+        <li>Namespaces: agrupamento e organização de recursos (classes, funções, constantes)</li>
+        <li>Prevenção de conflitos entre classes de mesmo nome</li>
+        <li>Configurar e usar <code>namespaces</code> e <code>alias</code></li>
     </ul>
 
-    <?php
-        require_once "src/PessoaFisica.php";
-        $cliente1 = new PessoaFisica;
-        $cliente1->setNome("Astrogildo");
-        $cliente1->setIdade(75);
+<?php
+/* Só de fazer o require/importação das classes (SEM NAMESPACE),
+já dá erro no servidor devido a terem o mesmo nome. */
 
-        $cliente2 = new PessoaFisica;
-        $cliente2->setNome("enzo");
-        $cliente2->setIdade(20);
+use Fornecedor\Pagamento;
+use Prestador\Pagamento as PrestadorPagamento;
+
+// Use individual (um pra cada classe)
+// use Tabajara\MEI;
+// use Tabajara\PessoaFisica;
+// use Tabajara\PessoaJuridica;
+
+// Use com uma lista de classes
+use Tabajara\{MEI, PessoaFisica as PF, PessoaJuridica as PJ};
+
+require_once "src/fornecedores/Pagamento.php";
+require_once "src/prestadores/Pagamento.php";
+
+// Forma 1 de usar classes com namespaces
+// $pagamentoFornecedor = new Fornecedor\Pagamento;
+// $pagamentoPrestador = new Prestador\Pagamento;
+
+// Forma 2 de usar classes com namespaces
+// use Fornecedor\Pagamento;
+// use Prestador\Pagamento as PrestadorPagamento; // ALIAS (APELIDO)
+
+// $pagamentoFornecedor = new Pagamento;
+// $pagamentoPrestador = new PrestadorPagamento; // objeto através do alias
+
+$pagamentoFornecedor = new Pagamento;
+$pagamentoPrestador = new PrestadorPagamento;
+?>
+
+<pre><?=var_dump($pagamentoFornecedor)?></pre>
+<pre><?=var_dump($pagamentoPrestador)?></pre>
+
+<hr>
+
+<!-- Exercícios: 
+- Crie objetos cliente PF, cliente PJ e cliente MEI 
+- Coloque alguns dados usando setters
+- Exiba alguns dados no HTML
+-->
+
+<?php
+require_once "src/PessoaFisica.php";
+require_once "src/PessoaJuridica.php";
+require_once "src/MEI.php";
+
+$clientePF = new PF;
+$clientePJ = new PJ;
+$clienteMEI = new MEI;
+
+$clientePF->setNome("Beltrano");
+$clientePJ->setNomeFantasia("Poeira em alto mar");
+$clienteMEI->setAreaDeAtuacao("TI");
+?>
+<p>Cliente: <?=$clientePF->getNome()?></p>
 
 
-        require_once "src/Utilitarios.php";
-        Utilitarios::obterData();
-    ?>
-
-    <h2>Atendimentos do dia: <?=Utilitarios::$dataAtual?></h2>
-
-    <h3>Cliente: <?=$cliente1->getNome()?></h3>
-    <p>Tipo de Atendimentos: <?=Utilitarios::definirAtendimento($cliente1->getIdade())?></p>
-
-    <h3>Cliente: <?=$cliente2->getNome()?></h3>
-    <p>Tipo de Atendimentos: <?=Utilitarios::definirAtendimento($cliente2->getIdade())?></p>
 </body>
 </html>

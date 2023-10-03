@@ -1,17 +1,15 @@
 <?php
-    require_once "src/PessoaJuridica.php";
+namespace Tabajara;
+require_once "PessoaJuridica.php";
+final class MEI extends PessoaJuridica {
+    private string $areaDeAtuacao;
 
-    //classe final não permite estender recursos para novas subclasses, ou seja, não permita herança.
-    final class MEI extends PessoaJuridica{
-        private string $areaDeAtuacao;
-
-        public function getAreaDeAtuacao(): string {
-                return $this->areaDeAtuacao;
-        }
-
-        public function setAreaDeAtuacao(string $areaDeAtuacao): self {
-                $this->areaDeAtuacao = $areaDeAtuacao;
-                return $this;
-        }
+    public function getAreaDeAtuacao():string {
+        return $this->areaDeAtuacao;
     }
-?>
+
+    public function setAreaDeAtuacao(string $areaDeAtuacao):self {
+        $this->areaDeAtuacao = $areaDeAtuacao;
+        return $this;
+    }
+}

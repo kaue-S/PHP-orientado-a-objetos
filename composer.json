@@ -1,0 +1,15 @@
+{
+    "name": "kaue.esaguiar/php-orientado-a-objetos",
+    "autoload": {
+        "psr-4": {
+            "KaueEsaguiar\\PhpOrientadoAObjetos\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Kauê Evangelista",
+            "email": "kauesilva38@hotmail.com"
+        }
+    ],
+    "require": {}
+}
